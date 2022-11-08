@@ -2,6 +2,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import AllServices from './components/AllServices/AllServices';
 import Blogs from './components/Blogs/Blogs';
+import DetailsAndReview from './components/DetailsAndReview/DetailsAndReview';
+import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Services from './components/Services/Services';
@@ -16,15 +18,18 @@ function App() {
       children: [
         {
           path: '/',
-          element: <Services></Services>
+          element: <Home></Home>,
+          loader: () => fetch('http://localhost:5000/services')
         },
         {
           path: '/allservices',
-          element: <AllServices></AllServices>
+          element: <AllServices></AllServices>,
+          loader: () => fetch('http://localhost:5000/allservices')
         },
         {
-          path: '/servicedetails',
-          element: <AllServices></AllServices>
+          path: '/details/:id',
+          element: <DetailsAndReview></DetailsAndReview>,
+          loader: ({ params }) => fetch(`http://localhost:5000/allservices/${params.id}`)
         },
         {
           path: '/blogs',
@@ -44,7 +49,7 @@ function App() {
   ])
 
   return (
-    <div>
+    <div className='mx-auto'>
       <RouterProvider router={router}></RouterProvider>
     </div>
   );
