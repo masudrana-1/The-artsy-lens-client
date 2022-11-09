@@ -6,7 +6,7 @@ const AllService = ({ service }) => {
 
     const { _id, title, img, price, rating, details } = service;
 
-    console.log(_id);
+    // console.log(_id);
 
     return (
         <div className="card card-compact height w-4/5 bg-base-100 shadow-xl m-auto my-6 ">
