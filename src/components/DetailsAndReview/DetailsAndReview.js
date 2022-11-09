@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthProvider';
 import Review from '../Review/Review';
 
 const DetailsAndReview = () => {
+
+    const { user } = useContext(AuthContext);
+
+    // console.log(user);
 
     const serviceDetails = useLoaderData();
 
@@ -35,6 +40,7 @@ const DetailsAndReview = () => {
         const reviews = {
             serviceId: serviceId,
             serviceName: serviceName,
+            serviceImg: img,
             name: name,
             email: email,
             comment: comment
@@ -75,19 +81,35 @@ const DetailsAndReview = () => {
                 </div>
             </div>
             <hr />
-            <div>
-                <form onSubmit={handleReview} className='m-auto my-10 w-3/4'>
-                    <h1 className='mt-4 text-center text-2xl text-orange-600'>Please review this service</h1>
-                    <hr className='w-1/4 m-auto' />
-                    <input type="text" name='name' placeholder="your name" className="input input-bordered input-ghost w-full mt-6" /> <br />
-                    <input type="text" name='email' placeholder="your email" className="input input-bordered input-ghost w-full mt-3" /> <br />
-                    <input type="text" defaultValue={title} name='service' placeholder="service" className="input input-bordered input-ghost w-full mt-3" /> <br />
-                    <input type="text" defaultValue={_id} name='id' placeholder="service id" className="input input-bordered input-ghost w-full mt-3" /> <br />
-                    <textarea name='comment' className="textarea textarea-bordered textarea-ghost w-full h-40 mt-3" placeholder="comment"></textarea> <br />
-                    <input className='btn mt-5 btn-error' type="submit" value="Review" />
-                </form>
-            </div>
+            {
+                user?.email ?
+                    <>
+                        <div>
+                            <form onSubmit={handleReview} className='m-auto my-10 w-3/4'>
+                                <h1 className='mt-4 text-center text-2xl text-orange-600'>Please review this service</h1>
+                                <hr className='w-1/4 m-auto' />
+                                <input type="text" name='name' placeholder="your name" className="input input-bordered input-ghost w-full mt-6" /> <br />
+                                <input type="text" name='email' placeholder="your email" className="input input-bordered input-ghost w-full mt-3" /> <br />
+                                <input type="text" defaultValue={title} name='service' placeholder="service" className="input input-bordered input-ghost w-full mt-3" /> <br />
+                                <input type="text" defaultValue={_id} name='id' placeholder="service id" className="input input-bordered input-ghost w-full mt-3" /> <br />
+                                <textarea name='comment' className="textarea textarea-bordered textarea-ghost w-full h-40 mt-3" placeholder="comment"></textarea> <br />
+                                <input className='btn mt-5 btn-error' type="submit" value="Review" />
+                            </form>
+                        </div>
+                    </>
+                    :
+                    <>
+                        <div>
+                            <h1 className='text-2xl text-center my-10 shadow-2xl text-rose-500'>Please
+                                <Link className='text-red-600 font-bold' to='/login'> Login </Link>
+                                to review this service </h1>
+                        </div>
+                    </>
+            }
+            <hr />
             <div className='my-8'>
+                <h1 className='text-2xl text-center'>All Reviews</h1>
+                <hr />
                 {
                     reviews.map(review => <Review key={review?._id} review={review}></Review>)
                 }

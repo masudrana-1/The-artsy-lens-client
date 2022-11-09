@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthProvider';
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    console.log(user)
+
+    const signOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -11,10 +23,17 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <Link to='/'>Home</Link>
-                        <Link className='mr-3'>Services</Link>
-                        <Link className='mr-3'>My Review</Link>
-                        <Link className='mr-3'>Add Services</Link>
-                        <Link>Blogs</Link>
+                        <Link to='/allservices' className='mr-3'>All Services</Link>
+                        {
+                            user?.email ?
+                                <>
+                                    <Link to='/allreview' className='mr-3'>My Review</Link>
+                                    <Link to='/addservice' className='mr-3'>Add Services</Link>
+                                </>
+                                :
+                                <></>
+                        }
+                        <Link to='/blogs' >Blogs</Link>
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl">TheArtsyLens</a>
@@ -22,14 +41,33 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     <Link className='mr-3' to='/' >Home</Link>
-                    <Link to='/allservice' className='mr-3'>Services</Link>
-                    <Link className='mr-3'>My Review</Link>
-                    <Link className='mr-3'>Add Services</Link>
-                    <Link>Blogs</Link>
+                    <Link to='/allservices' className='mr-3'>All Services</Link>
+                    {
+                        user?.email ?
+                            <>
+                                <Link to='/allreview' className='mr-3'>My Review</Link>
+                                <Link to='/addservice' className='mr-3'>Add Services</Link>
+                            </>
+                            :
+                            <></>
+                    }
+                    <Link to='/blogs'>Blogs</Link>
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className='btn' to='/login'>LogIn</Link>
+                {
+                    user?.email ?
+                        <>
+                            <div className="tooltip tooltip-left" data-tip={user?.displayName}>
+                                <img className='w-12 h-12 mr-6 rounded-full' src={user?.photoURL} alt="" />
+                            </div>
+                            <Link onClick={signOut} className='btn btn-outline'>SignOut</Link>
+                        </>
+                        :
+                        <>
+                            <Link className='btn btn-outline' to='/login'>SignIn</Link>
+                        </>
+                }
             </div>
         </div>
     );
