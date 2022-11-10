@@ -5,11 +5,10 @@ import AllReviews from './components/AllReviews/AllReviews';
 import AllServices from './components/AllServices/AllServices';
 import Blogs from './components/Blogs/Blogs';
 import DetailsAndReview from './components/DetailsAndReview/DetailsAndReview';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
-import Review from './components/Review/Review';
-import Services from './components/Services/Services';
 import Main from './layout/Main';
 
 function App() {
@@ -17,6 +16,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
+      errorElement: <ErrorPage></ErrorPage>,
       element: <Main></Main>,
       children: [
         {
@@ -36,8 +36,7 @@ function App() {
         },
         {
           path: '/allreview',
-          element: <AllReviews></AllReviews>,
-          // loader: () => fetch('http://localhost:5000/reviews')
+          element: <AllReviews></AllReviews>
         },
         {
           path: '/addservice',

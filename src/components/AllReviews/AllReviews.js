@@ -10,6 +10,8 @@ const AllReviews = () => {
 
     const [reviews, setReviews] = useState();
 
+    const [view, setView] = useState(false);
+
     // console.log(reviews);
 
     useEffect(() => {
@@ -30,7 +32,7 @@ const AllReviews = () => {
                     setReviews(data)
                 })
         }
-    }, [user?.email, logOut])
+    }, [user?.email, logOut, view])
 
     const handleDelete = id => {
         console.log(id);
@@ -52,29 +54,6 @@ const AllReviews = () => {
         }
     }
 
-    const handleReviewUpdate = id => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ status: 'Approved' })
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-
-                if (data.modifiedCount > 0) {
-                    const remaining = reviews.filter(review => review._id !== id);
-                    const approving = reviews.find(review => review._id === id);
-                    approving.status = 'Approved';
-
-
-                    const newReviews = [approving, ...remaining];
-                    setReviews(newReviews);
-                }
-            })
-    }
 
     useTitle('All reviews')
 
@@ -82,12 +61,33 @@ const AllReviews = () => {
         <div>
             <h1 className='text-6xl text-center mb-2 font-bold text-orange-500'>My all reviews</h1>
             <hr className='mb-8' />
+            {/* <>
+                {
+                    reviews.length === 0 ?
+                        <>
+                            {
+                                reviews?.map(review => <ReviewDetails
+                                    key={review?._id}
+                                    review={review}
+                                    handleDelete={handleDelete}
+                                    view={view}
+                                    setView={setView}
+                                ></ReviewDetails>)
+                            }
+                        </>
+                        :
+                        <>
+                            <h1>no review ware added</h1>
+                        </>
+                }
+            </> */}
             {
                 reviews?.map(review => <ReviewDetails
                     key={review?._id}
                     review={review}
                     handleDelete={handleDelete}
-                    handleReviewUpdate={handleReviewUpdate}
+                    view={view}
+                    setView={setView}
                 ></ReviewDetails>)
             }
         </div>

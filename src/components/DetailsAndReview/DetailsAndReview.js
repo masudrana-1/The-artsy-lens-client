@@ -18,9 +18,12 @@ const DetailsAndReview = () => {
 
     const [reviews, setReviews] = useState([]);
 
+    const [view, setView] = useState(false);
+
     console.log(reviews);
 
     useEffect(() => {
+        if (!user?.email) return;
         fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('artsy-token')}`
@@ -28,7 +31,7 @@ const DetailsAndReview = () => {
         })
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [user?.email])
+    }, [user?.email, view])
 
 
     const handleReview = event => {
@@ -63,6 +66,8 @@ const DetailsAndReview = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+
+                setView(!view);
 
                 if (data.acknowledged) {
                     // setReviews(data);
