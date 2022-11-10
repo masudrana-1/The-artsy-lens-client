@@ -32,7 +32,7 @@ const Login = () => {
                 console.log(currentUser);
 
                 // get jwt token 
-                fetch('https://the-artsy-lens-server-site-masudrana-1.vercel.app/jwt', {
+                fetch('https://the-artsy-lens-server-site.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

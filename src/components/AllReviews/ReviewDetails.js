@@ -34,7 +34,7 @@ const ReviewDetails = ({ review, handleDelete, view, setView }) => {
 
         // console.log(reviews)
 
-        fetch(`https://the-artsy-lens-server-site-masudrana-1.vercel.app/reviews/${_id}`, {
+        fetch(`https://the-artsy-lens-server-site.vercel.app/reviews/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
