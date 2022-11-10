@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../hook/useTitle';
 import { AuthContext } from '../Context/AuthProvider';
 import Review from '../Review/Review';
 
@@ -18,10 +19,10 @@ const DetailsAndReview = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [])
+    }, [user?.email])
 
 
     const handleReview = event => {
@@ -66,6 +67,8 @@ const DetailsAndReview = () => {
 
     }
 
+    useTitle('DetailsAndReviews')
+
     return (
         <div>
             <div className="card w-full m-auto glass my-10 shadow-2xl">
@@ -88,8 +91,8 @@ const DetailsAndReview = () => {
                             <form onSubmit={handleReview} className='m-auto my-10 w-3/4'>
                                 <h1 className='mt-4 text-center text-2xl text-orange-600'>Please review this service</h1>
                                 <hr className='w-1/4 m-auto' />
-                                <input type="text" name='name' placeholder="your name" className="input input-bordered input-ghost w-full mt-6" /> <br />
-                                <input type="text" name='email' placeholder="your email" className="input input-bordered input-ghost w-full mt-3" /> <br />
+                                <input type="text" name='name' defaultValue={user?.displayName} placeholder="your name" className="input input-bordered input-ghost w-full mt-6" /> <br />
+                                <input type="text" name='email' defaultValue={user?.email} placeholder="your email" className="input input-bordered input-ghost w-full mt-3" /> <br />
                                 <input type="text" defaultValue={title} name='service' placeholder="service" className="input input-bordered input-ghost w-full mt-3" /> <br />
                                 <input type="text" defaultValue={_id} name='id' placeholder="service id" className="input input-bordered input-ghost w-full mt-3" /> <br />
                                 <textarea name='comment' className="textarea textarea-bordered textarea-ghost w-full h-40 mt-3" placeholder="comment"></textarea> <br />

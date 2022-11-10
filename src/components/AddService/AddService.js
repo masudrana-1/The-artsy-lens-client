@@ -1,4 +1,5 @@
 import React from 'react';
+import useTitle from '../../hook/useTitle';
 
 const AddService = () => {
 
@@ -38,6 +39,8 @@ const AddService = () => {
             })
             .catch(error => console.error(error))
     }
+
+    useTitle('Add service');
 
     return (
         <div>

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useTitle from '../../hook/useTitle';
 import { AuthContext } from '../Context/AuthProvider';
 
 const Login = () => {
@@ -28,6 +29,8 @@ const Login = () => {
             })
             .catch(error => console.log(error))
     }
+
+    useTitle('SignIn');
 
     return (
         <form onSubmit={handleSignIn} className="form-control w-2/6 m-auto p-10 shadow-2xl my-28 rounded-lg">

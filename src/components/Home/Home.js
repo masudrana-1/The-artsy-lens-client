@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../hook/useTitle';
 import Banner from '../Banner/Banner';
 import Services from '../Services/Services';
 
@@ -7,6 +8,9 @@ const Home = () => {
 
     const services = useLoaderData();
     // console.log(allServices);
+
+    // dynamic title 
+    useTitle('Home');
 
     return (
         <div>

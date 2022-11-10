@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../hook/useTitle';
 import { AuthContext } from '../Context/AuthProvider';
 
 const Register = () => {
@@ -33,6 +34,8 @@ const Register = () => {
             })
             .catch(error => console.error(error))
     }
+
+    useTitle('SignUp');
 
 
     return (
