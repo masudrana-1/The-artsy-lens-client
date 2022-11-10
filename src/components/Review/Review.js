@@ -12,7 +12,6 @@ const Review = ({ review }) => {
             <h1 className='text-xl'>{name}</h1>
             <p className='text-xs'>{serviceName}</p>
             <p className='text-base'>{comment}</p>
-            <button className='btn btn-warning'>Delete</button>
         </div>
     );
 };

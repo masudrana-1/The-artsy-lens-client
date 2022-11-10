@@ -15,7 +15,7 @@ const AllService = ({ service }) => {
                 <h2 className="card-title">{title}</h2>
                 <p className="">Price: ${price}</p>
                 <h2 className="">Rating: {rating}</h2>
-                <p>{details}</p>
+                <p>{details.slice(0, 200)}</p>
                 <div className="card-actions justify-end">
                     <Link to={`/details/${_id}`} className="btn btn-primary">Details</Link>
                 </div>

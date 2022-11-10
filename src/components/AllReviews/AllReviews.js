@@ -6,16 +6,13 @@ import ReviewDetails from './ReviewDetails';
 
 const AllReviews = () => {
 
-    // const allreviews = useLoaderData();
-
     const { user, logOut } = useContext(AuthContext);
 
     const [reviews, setReviews] = useState();
 
-    console.log(reviews);
+    // console.log(reviews);
 
     useEffect(() => {
-        // console.log(user?.email, localStorage.getItem('artsy-token'));
         if (user?.email && localStorage.getItem('artsy-token')) {
 
             fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
@@ -31,10 +28,8 @@ const AllReviews = () => {
                 })
                 .then(data => {
                     setReviews(data)
-                    // console.log(data)
                 })
         }
-        // if (!user?.email || !localStorage.getItem('artsy-token')) return;
     }, [user?.email, logOut])
 
     const handleDelete = id => {
@@ -85,6 +80,8 @@ const AllReviews = () => {
 
     return (
         <div>
+            <h1 className='text-6xl text-center mb-2 font-bold text-orange-500'>My all reviews</h1>
+            <hr className='mb-8' />
             {
                 reviews?.map(review => <ReviewDetails
                     key={review?._id}

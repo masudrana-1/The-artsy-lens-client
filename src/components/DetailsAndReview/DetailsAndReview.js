@@ -18,8 +18,14 @@ const DetailsAndReview = () => {
 
     const [reviews, setReviews] = useState([]);
 
+    console.log(reviews);
+
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('artsy-token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [user?.email])
@@ -57,7 +63,9 @@ const DetailsAndReview = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+
                 if (data.acknowledged) {
+                    // setReviews(data);
                     alert('reviewed successfully');
                     form.reset();
                 }
@@ -78,9 +86,6 @@ const DetailsAndReview = () => {
                     <p className='text-orange-500'>Price: ${price}</p>
                     <p>Rating: {rating}</p>
                     <p>{details}</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Learn now!</button>
-                    </div>
                 </div>
             </div>
             <hr />
@@ -114,7 +119,7 @@ const DetailsAndReview = () => {
                 <h1 className='text-2xl text-center'>All Reviews</h1>
                 <hr />
                 {
-                    reviews.map(review => <Review key={review?._id} review={review}></Review>)
+                    reviews?.map(review => <Review key={review?._id} review={review}></Review>)
                 }
             </div>
         </div>

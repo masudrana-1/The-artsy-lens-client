@@ -41,6 +41,15 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-200 p-10 rounded-2xl shadow-2xl my-10'>
+                <div className=''>
+                    <h1 className='text-5xl  font-bold mb-3'>Ready to join.</h1>
+                    <p>It is a long established fact that a reader will be distracted by <br /> the readable content of a page when looking at its layout.</p>
+                </div>
+                <div className='text-end'>
+                    <Link className='btn btn-error w-2/5 mt-8' to='/register'>SignUp</Link>
+                </div>
+            </div>
         </div>
     );
 };

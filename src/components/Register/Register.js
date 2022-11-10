@@ -85,8 +85,8 @@ const Register = () => {
 
 
     return (
-        <div>
-            <form onSubmit={handleSignUp} className="form-control w-2/6 m-auto p-10 shadow-2xl mt-4 mb-10 rounded-lg">
+        <div className="form-control w-full md:w-2/6 m-auto p-10 shadow-2xl mt-4 mb-10 rounded-lg">
+            <form onSubmit={handleSignUp}>
                 <h1 className='text-5xl font-bold text-center'>SignUp</h1>
                 <div>
                     <h1 className='text-lg text-orange-500 mb-2 mt-4'>Name</h1>
@@ -100,7 +100,7 @@ const Register = () => {
                     <h1 className='text-lg text-orange-500 mb-2 mt-4'>Password</h1>
                     <input className='w-full mb-3 p-4 border rounded-xl' type="password" name="password" placeholder='your password' />
                 </div>
-                <input className='btn mt-4' type="submit" value="SignUp" />
+                <input className='btn mt-4 w-full' type="submit" value="SignUp" />
                 <div className='mt-6'>
                     <p>Already have an account. Please  <Link to='/login' className='text-info'>SignIn</Link> </p>
                 </div>

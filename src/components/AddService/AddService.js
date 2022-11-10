@@ -16,7 +16,7 @@ const AddService = () => {
 
         const services = {
             title: name,
-            Img: imgUrl,
+            img: imgUrl,
             rating: rating,
             price: price,
             details: details

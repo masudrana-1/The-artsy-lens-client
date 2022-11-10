@@ -24,6 +24,8 @@ const Login = () => {
                 const user = result.user;
                 // console.log(user);
 
+                alert('login successfully');
+
                 const currentUser = {
                     email: user.email
                 }
@@ -54,7 +56,7 @@ const Login = () => {
     useTitle('SignIn');
 
     return (
-        <form onSubmit={handleSignIn} className="form-control w-2/6 m-auto p-10 shadow-2xl my-28 rounded-lg">
+        <form onSubmit={handleSignIn} className="form-control w-full lg:w-2/6 m-auto p-10 shadow-2xl my-28 rounded-lg">
             <h1 className='text-5xl font-bold text-center'>SignIn</h1>
             <div>
                 <h1 className='text-lg text-orange-500 mb-2 mt-4'>Email</h1>
