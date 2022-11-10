@@ -22,7 +22,7 @@ const AddService = () => {
             details: details
         }
 
-        fetch('http://localhost:5000/allservices', {
+        fetch('https://the-artsy-lens-server-site-masudrana-1.vercel.app/allservices', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

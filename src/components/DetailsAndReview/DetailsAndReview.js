@@ -24,7 +24,7 @@ const DetailsAndReview = () => {
 
     useEffect(() => {
         if (!user?.email) return;
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+        fetch(`https://the-artsy-lens-server-site-masudrana-1.vercel.app/reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('artsy-token')}`
             }
@@ -56,7 +56,7 @@ const DetailsAndReview = () => {
             comment: comment
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://the-artsy-lens-server-site-masudrana-1.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

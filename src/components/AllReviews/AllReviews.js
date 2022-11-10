@@ -17,7 +17,7 @@ const AllReviews = () => {
     useEffect(() => {
         if (user?.email && localStorage.getItem('artsy-token')) {
 
-            fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+            fetch(`https://the-artsy-lens-server-site-masudrana-1.vercel.app/reviews?email=${user?.email}`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('artsy-token')}`
                 }
@@ -39,7 +39,7 @@ const AllReviews = () => {
         const proceed = window.confirm('Are you sure to cancel this order?');
 
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://the-artsy-lens-server-site-masudrana-1.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -61,26 +61,7 @@ const AllReviews = () => {
         <div>
             <h1 className='text-6xl text-center mb-2 font-bold text-orange-500'>My all reviews</h1>
             <hr className='mb-8' />
-            {/* <>
-                {
-                    reviews.length === 0 ?
-                        <>
-                            {
-                                reviews?.map(review => <ReviewDetails
-                                    key={review?._id}
-                                    review={review}
-                                    handleDelete={handleDelete}
-                                    view={view}
-                                    setView={setView}
-                                ></ReviewDetails>)
-                            }
-                        </>
-                        :
-                        <>
-                            <h1>no review ware added</h1>
-                        </>
-                }
-            </> */}
+
             {
                 reviews?.map(review => <ReviewDetails
                     key={review?._id}
