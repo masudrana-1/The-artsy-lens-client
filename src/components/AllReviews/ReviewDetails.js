@@ -2,11 +2,33 @@ import React, { useContext } from 'react';
 import useTitle from '../../hook/useTitle';
 import { AuthContext } from '../Context/AuthProvider';
 
-const ReviewDetails = ({ review, handleDelete }) => {
+const ReviewDetails = ({ review, handleDelete, handleReviewUpdate }) => {
 
     const { user } = useContext(AuthContext);
 
-    const { _id, name, serviceName, comment } = review;
+    const { _id, name, img, serviceName, comment } = review;
+
+    const handleEditReview = event => {
+        event.preventDefault();
+
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const serviceName = form.serviceName.value;
+        const serviceId = form.id.value;
+        const comment = form.comment.value;
+
+
+        const reviews = {
+            serviceId: serviceId,
+            serviceName: serviceName,
+            serviceImg: img,
+            name: name,
+            email: email,
+            comment: comment
+        }
+    }
+
 
     useTitle('Review Details')
 
@@ -23,7 +45,7 @@ const ReviewDetails = ({ review, handleDelete }) => {
 
                 {/* Put this part before </body> tag */}
                 <input type="checkbox" id="my-modal" className="modal-toggle" />
-                <form className="modal">
+                <form onSubmit={() => handleReviewUpdate(_id)} className="modal">
                     <div className="modal-box">
                         <h3 className="font-bold text-lg">Edit this review</h3>
                         <h1 className='mt-4 text-center text-2xl text-orange-600'>Please review this service</h1>
@@ -34,7 +56,7 @@ const ReviewDetails = ({ review, handleDelete }) => {
                         <input type="text" defaultValue={_id} name='id' placeholder="service id" className="input input-bordered input-ghost w-full mt-3" /> <br />
                         <textarea name='comment' className="textarea textarea-bordered textarea-ghost w-full h-40 mt-3" placeholder="comment"></textarea> <br />
                         <div className="modal-action">
-                            <label htmlFor="my-modal" className="btn">Yay!</label>
+                            <label htmlFor="my-modal" className="btn">Update</label>
                         </div>
                     </div>
                 </form>

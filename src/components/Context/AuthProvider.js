@@ -28,6 +28,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const logOut = () => {
+        localStorage.removeItem('artsy-token')
         setLoading(true);
         return signOut(auth);
     }
