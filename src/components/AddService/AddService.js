@@ -22,7 +22,7 @@ const AddService = () => {
             details: details
         }
 
-        fetch('https://the-artsy-lens-server-site.vercel.app/allservices', {
+        fetch('http://localhost:5000/allservices', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -52,7 +52,7 @@ const AddService = () => {
                 <input type="text" name='rating' placeholder="Add rating 5/5" className="input input-bordered input-ghost w-full mt-3" /> <br />
                 <input type="text" name='price' placeholder="service price" className="input input-bordered input-ghost w-full mt-3" /> <br />
                 <textarea name='details' className="textarea textarea-bordered textarea-ghost w-full h-40 mt-3" placeholder="service details"></textarea> <br />
-                <input className='btn mt-5 btn-error' type="submit" value="Add" />
+                <input className='btn mt-5 btn-error shadow-lg shadow-cyan-500/50' type="submit" value="Add" />
             </form>
         </div>
     );

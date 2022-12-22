@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import useTitle from '../../hook/useTitle';
 import { AuthContext } from '../Context/AuthProvider';
 
-const ReviewDetails = ({ review, handleDelete, view, setView }) => {
+const ReviewDetails = ({ review, handleDelete, handleReview, view, setView }) => {
 
     const { user } = useContext(AuthContext);
 
@@ -34,7 +34,7 @@ const ReviewDetails = ({ review, handleDelete, view, setView }) => {
 
         // console.log(reviews)
 
-        fetch(`https://the-artsy-lens-server-site.vercel.app/reviews/${_id}`, {
+        fetch(`http://localhost:5000/reviews/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -70,7 +70,7 @@ const ReviewDetails = ({ review, handleDelete, view, setView }) => {
                 <p className='text-base'>{comment}</p>
                 <button onClick={() => handleDelete(_id)} className='btn btn-warning my-5 inline'>Delete</button>
                 {/* The button to open modal */}
-                <label htmlFor="my-modal-3" className="btn btn-info ml-4">Edit Review</label>
+                <label onClick={() => handleReview(_id)} htmlFor="my-modal-3" className="btn btn-info ml-4">Edit Review</label>
 
                 {/* Put this part before </body> tag */}
                 <input type="checkbox" id="my-modal-3" className="modal-toggle" />

@@ -22,17 +22,17 @@ function App() {
         {
           path: '/',
           element: <Home></Home>,
-          loader: () => fetch('https://the-artsy-lens-server-site.vercel.app/services')
+          loader: () => fetch('http://localhost:5000/services')
         },
         {
           path: '/allservices',
           element: <AllServices></AllServices>,
-          loader: () => fetch('https://the-artsy-lens-server-site.vercel.app/allservices')
+          loader: () => fetch('http://localhost:5000/allservices')
         },
         {
           path: '/details/:id',
           element: <DetailsAndReview></DetailsAndReview>,
-          loader: ({ params }) => fetch(`https://the-artsy-lens-server-site.vercel.app/allservices/${params.id}`)
+          loader: ({ params }) => fetch(`http://localhost:5000/allservices/${params.id}`)
         },
         {
           path: '/allreview',

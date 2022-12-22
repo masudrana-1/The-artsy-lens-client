@@ -17,7 +17,7 @@ const AllReviews = () => {
     useEffect(() => {
         if (user?.email && localStorage.getItem('artsy-token')) {
 
-            fetch(`https://the-artsy-lens-server-site.vercel.app/reviews?email=${user?.email}`, {
+            fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('artsy-token')}`
                 }
@@ -39,7 +39,7 @@ const AllReviews = () => {
         const proceed = window.confirm('Are you sure to cancel this order?');
 
         if (proceed) {
-            fetch(`https://the-artsy-lens-server-site.vercel.app/reviews/${id}`, {
+            fetch(`http://localhost:5000/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -53,6 +53,7 @@ const AllReviews = () => {
                 })
         }
     }
+
 
 
     useTitle('All reviews')
