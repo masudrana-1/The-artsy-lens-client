@@ -66,7 +66,7 @@ const Login = () => {
                 <h1 className='text-lg text-orange-500 mb-2 mt-4'>Password</h1>
                 <input className='w-full mb-3 p-4 border rounded-xl' type="password" name="password" placeholder='your password' />
             </div>
-            <input className='btn mt-4' type="submit" value="SignIn" />
+            <input className='btn mt-4 shadow-lg shadow-cyan-500/50' type="submit" value="SignIn" />
             <div className='mt-6'>
                 <p>Don't have an account? Please  <Link to='/register' className='text-info'> SignUP</Link> </p>
             </div>

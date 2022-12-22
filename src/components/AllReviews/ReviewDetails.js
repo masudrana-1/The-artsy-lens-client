@@ -83,7 +83,7 @@ const ReviewDetails = ({ review, handleDelete, handleReview, view, setView }) =>
                         <input type="text" defaultValue={serviceName} name='service' placeholder="service" className="input input-bordered input-ghost w-full mt-3" /> <br />
                         <input type="text" defaultValue={_id} name='id' placeholder="service id" className="input input-bordered input-ghost w-full mt-3" /> <br />
                         <textarea name='comment' defaultValue={comment} className="textarea textarea-bordered textarea-ghost w-full h-40 mt-3" placeholder="comment"></textarea> <br />
-                        <input className='btn' type="submit" value="Done" />
+                        <input className='btn shadow-lg shadow-cyan-500/50' type="submit" value="Done" />
                     </form>
                 </div>
             </div>

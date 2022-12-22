@@ -22,7 +22,7 @@ const Home = () => {
                     }
                 </div>
                 <div className='text-center'>
-                    <Link to='/allservices' className="btn btn-active btn-error my-5">See all services</Link>
+                    <Link to='/allservices' className="btn btn-active btn-error my-5 shadow-lg shadow-cyan-500/50">See all services</Link>
                 </div>
             </div>
             <div>
@@ -47,7 +47,7 @@ const Home = () => {
                     <p>It is a long established fact that a reader will be distracted by <br /> the readable content of a page when looking at its layout.</p>
                 </div>
                 <div className='text-end'>
-                    <Link className='btn btn-error w-2/5 mt-8' to='/register'>SignUp</Link>
+                    <Link className='btn btn-error shadow-lg shadow-cyan-500/50 w-2/5 mt-8' to='/register'>SignUp</Link>
                 </div>
             </div>
         </div>

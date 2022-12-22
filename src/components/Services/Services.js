@@ -14,7 +14,7 @@ const Services = ({ service }) => {
                         <h1 className="text-5xl font-bold mt-2">{title}</h1>
                         <span className="">Rating: {rating}</span>
                         <p className="py-6">{details.slice(0, 150)}</p>
-                        <Link to={`/details/${_id}`} className="btn btn-primary">See details</Link>
+                        <Link to={`/details/${_id}`} className="btn btn-primary shadow-lg shadow-cyan-500/50">See details</Link>
                     </div>
                 </div>
             </div>

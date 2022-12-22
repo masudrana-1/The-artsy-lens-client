@@ -100,13 +100,13 @@ const Register = () => {
                     <h1 className='text-lg text-orange-500 mb-2 mt-4'>Password</h1>
                     <input className='w-full mb-3 p-4 border rounded-xl' type="password" name="password" placeholder='your password' />
                 </div>
-                <input className='btn mt-4 w-full' type="submit" value="SignUp" />
+                <input className='btn mt-4 w-full shadow-lg shadow-cyan-500/50' type="submit" value="SignUp" />
                 <div className='mt-6'>
                     <p>Already have an account. Please  <Link to='/login' className='text-info'>SignIn</Link> </p>
                 </div>
             </form>
             <div>
-                <button onClick={signUpWithGoogle} className='btn w-full mt-3 btn-outline'>SignUp with google</button>
+                <button onClick={signUpWithGoogle} className='btn w-full mt-3 btn-outline shadow-lg shadow-red-500/50'>SignUp with google</button>
             </div>
         </div>
     );

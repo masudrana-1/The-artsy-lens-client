@@ -106,7 +106,7 @@ const DetailsAndReview = () => {
                                 <input type="text" defaultValue={title} name='service' placeholder="service" className="input input-bordered input-ghost w-full mt-3" /> <br />
                                 <input type="text" defaultValue={_id} name='id' placeholder="service id" className="input input-bordered input-ghost w-full mt-3" /> <br />
                                 <textarea name='comment' className="textarea textarea-bordered textarea-ghost w-full h-40 mt-3" placeholder="comment"></textarea> <br />
-                                <input className='btn mt-5 btn-error' type="submit" value="Review" />
+                                <input className='btn mt-5 btn-error shadow-lg shadow-cyan-500/50' type="submit" value="Review" />
                             </form>
                         </div>
                     </>
