@@ -7,8 +7,8 @@ const Services = ({ service }) => {
 
     return (
         <div>
-            <div className="hero bg-base-200 h-auto m-auto rounded-2xl p-8 mt-10 shadow-2xl">
-                <div className="hero-content w-full md:w-4/5 flex-col lg:flex-row">
+            <div className="hero h-auto m-auto rounded-2xl p-8 mt-10 shadow-2xl shadow-cyan-500/50">
+                <div className="hero-content w-full md:w-4/5 flex-col lg:flex-row justify-between">
                     <img src={img} className="h-96 rounded-lg shadow-2xl" />
                     <div className='w-full'>
                         <h1 className="text-5xl font-bold mt-2">{title}</h1>

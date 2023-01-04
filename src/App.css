@@ -1,3 +1,9 @@
+body {
+  background-image: url(../src/assets/annie-spratt-0ZPSX_mQ3xI-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .App {
   text-align: center;
 }
@@ -32,6 +38,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

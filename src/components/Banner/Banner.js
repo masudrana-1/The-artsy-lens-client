@@ -1,11 +1,10 @@
 import React from 'react';
-import './Banner.css'
 
 const Banner = () => {
     return (
-        <div className="carousel banner w-full">
+        <div className="carousel banner w-full h-screen">
             <div id="slide1" className="carousel-item relative w-full">
-                <img src="https://images.unsplash.com/photo-1615006230513-a2f76fc23512?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" className="w-full" />
+                <img src="https://images.unsplash.com/photo-1606706252694-6f516a7bb75d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTUwfHxwaG90b2dyYXBoeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" className="w-full" />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                     <a href="#slide6" className="btn btn-circle">❮</a>
                     <a href="#slide2" className="btn btn-circle">❯</a>

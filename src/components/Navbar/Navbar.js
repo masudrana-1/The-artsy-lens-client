@@ -15,7 +15,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -61,11 +61,11 @@ const Navbar = () => {
                             <div className="tooltip tooltip-left" data-tip={user?.displayName}>
                                 <img className='w-12 h-12 mr-6 rounded-full' src={user?.photoURL} alt="" />
                             </div>
-                            <Link onClick={signOut} className='btn btn-outline'>SignOut</Link>
+                            <Link onClick={signOut} className='btn btn-primary'>SignOut</Link>
                         </>
                         :
                         <>
-                            <Link className='btn btn-outline' to='/login'>SignIn</Link>
+                            <Link className='btn btn-primary' to='/login'>SignIn</Link>
                         </>
                 }
             </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
 import './AllService.css'
 
@@ -10,16 +9,9 @@ const AllService = ({ service }) => {
     // console.log(_id);
 
     return (
-        <div className="card card-compact height w-4/5 bg-base-100 shadow-xl m-auto my-6 ">
+        <div className="card card-compact height w-4/5 shadow-2xl shadow-cyan-500/50 m-auto my-6 ">
             <figure>
                 <img className='w-full' src={img} alt="Shoes" />
-
-                {/* <PhotoProvider>
-                    <PhotoView src={img}>
-                        <img src={img} alt="" />
-                    </PhotoView>
-                </PhotoProvider> */}
-
             </figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>

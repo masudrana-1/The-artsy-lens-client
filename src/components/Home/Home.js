@@ -22,11 +22,15 @@ const Home = () => {
                     }
                 </div>
                 <div className='text-center'>
+<<<<<<< HEAD
                     <Link to='/allservices' className="btn btn-active btn-error my-5 shadow-lg shadow-cyan-500/50">See all services</Link>
+=======
+                    <Link to='/allservices' className="btn btn-active btn-primary my-5">See all services</Link>
+>>>>>>> 2e6876a (added background and fixed color issue)
                 </div>
             </div>
             <div>
-                <div className='bg-orange-200 rounded-xl my-6 shadow-2xl grid grid-cols-1 md:grid-cols-3 gap-5 p-10'>
+                <div className='shadow-lg shadow-cyan-500/50 my-6 rounded-xl grid grid-cols-1 md:grid-cols-3 gap-5 p-10'>
                     <div className='text-center'>
                         <h1 className='text-2xl font-bold text-orange-500'>We are open Saturday - thursday</h1>
                         <p className='text-rose-500'>8.00 AM - 10 PM</p>
@@ -41,7 +45,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-200 p-10 rounded-2xl shadow-2xl my-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-6 shadow-lg shadow-cyan-500/50 p-10 rounded-2xl my-10'>
                 <div className=''>
                     <h1 className='text-5xl  font-bold mb-3'>Ready to join.</h1>
                     <p>It is a long established fact that a reader will be distracted by <br /> the readable content of a page when looking at its layout.</p>

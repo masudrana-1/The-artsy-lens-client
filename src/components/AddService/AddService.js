@@ -44,15 +44,19 @@ const AddService = () => {
 
     return (
         <div>
-            <form onSubmit={handleAddService} className='m-auto my-10 w-3/4'>
-                <h1 className='mt-4 text-center text-2xl text-orange-600'>Add any service</h1>
+            <form onSubmit={handleAddService} className='m-auto my-10 w-3/4 shadow-lg shadow-cyan-500/50 p-10 rounded-xl'>
+                <h1 className='mt-4 text-center text-2xl text-orange-600'>Add Your service</h1>
                 <hr className='w-1/4 m-auto' />
                 <input type="text" name='name' placeholder="service name" className="input input-bordered input-ghost w-full mt-6" /> <br />
                 <input type="text" name='imgUrl' placeholder="img url" className="input input-bordered input-ghost w-full mt-3" /> <br />
                 <input type="text" name='rating' placeholder="Add rating 5/5" className="input input-bordered input-ghost w-full mt-3" /> <br />
                 <input type="text" name='price' placeholder="service price" className="input input-bordered input-ghost w-full mt-3" /> <br />
                 <textarea name='details' className="textarea textarea-bordered textarea-ghost w-full h-40 mt-3" placeholder="service details"></textarea> <br />
+<<<<<<< HEAD
                 <input className='btn mt-5 btn-error shadow-lg shadow-cyan-500/50' type="submit" value="Add" />
+=======
+                <input className='btn mt-5 btn-primary' type="submit" value="Add" />
+>>>>>>> 2e6876a (added background and fixed color issue)
             </form>
         </div>
     );
